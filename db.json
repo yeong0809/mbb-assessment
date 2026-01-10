@@ -1,0 +1,34 @@
+{
+  "places": [
+    {
+      "id": 1,
+      "name": "Great Wall of China",
+      "description": "Ancient series of walls and fortifications located in northern China, built over several dynasties.",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Mutianyu_Great_Wall_2011.JPG"
+    },
+    {
+      "id": 2,
+      "name": "Colosseum",
+      "description": "Large amphitheater in Rome, Italy, used for gladiatorial contests and public spectacles.",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Colosseo_2020.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Machu Picchu",
+      "description": "15th-century Inca citadel in Peru, set high in the Andes Mountains.",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Machu_Picchu%2C_Peru.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Pyramids of Giza",
+      "description": "Iconic ancient pyramids built as tombs for Egyptian pharaohs in Giza.",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Kheops-Pyramid.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Stonehenge",
+      "description": "Prehistoric monument in England consisting of a ring of standing stones.",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Stonehenge2007_07_30.jpg"
+    }
+  ]
+}
