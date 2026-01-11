@@ -1,34 +1,34 @@
 {
-  "places": [
-    {
-      "id": 1,
-      "name": "Great Wall of China",
-      "description": "Ancient series of walls and fortifications located in northern China, built over several dynasties.",
-      "image": "https://i.imgur.com/35dxtuO_d.webp?maxwidth=520&shape=thumb&fidelity=high"
-    },
-    {
-      "id": 2,
-      "name": "Colosseum",
-      "description": "Large amphitheater in Rome, Italy, used for gladiatorial contests and public spectacles.",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/8/83/Colosseum_-_Rome_-_Italy_%2816800139540%29.jpg"
-    },
-    {
-      "id": 3,
-      "name": "Machu Picchu",
-      "description": "15th-century Inca citadel in Peru, set high in the Andes Mountains.",
-      "image": "https://i.imgur.com/BAnHv1d.jpeg"
-    },
-    {
-      "id": 4,
-      "name": "Pyramids of Giza",
-      "description": "Iconic ancient pyramids built as tombs for Egyptian pharaohs in Giza.",
-      "image": "https://i.imgur.com/C2GqsCN_d.webp?maxwidth=520&shape=thumb&fidelity=high"
-    },
-    {
-      "id": 5,
-      "name": "Stonehenge",
-      "description": "Prehistoric monument in England consisting of a ring of standing stones.",
-      "image": "https://i.imgur.com/CLPwqsx_d.webp?maxwidth=520&shape=thumb&fidelity=high"
-    }
-  ]
+    "places": [
+        {
+            "id": 1,
+            "name": "Great Wall of China",
+            "description": "Ancient series of walls and fortifications located in northern China, built over several dynasties.",
+            "image": "https://i.imgur.com/35dxtuO_d.webp?maxwidth=520&shape=thumb&fidelity=high"
+        },
+        {
+            "id": 2,
+            "name": "Colosseum",
+            "description": "Large amphitheater in Rome, Italy, used for gladiatorial contests and public spectacles.",
+            "image": "https://i.imgur.com/VJ49jg0_d.webp?maxwidth=520&shape=thumb&fidelity=high"
+        },
+        {
+            "id": 3,
+            "name": "Machu Picchu",
+            "description": "15th-century Inca citadel in Peru, set high in the Andes Mountains.",
+            "image": "https://i.imgur.com/euZq0JC_d.webp?maxwidth=520&shape=thumb&fidelity=high"
+        },
+        {
+            "id": 4,
+            "name": "Pyramids of Giza",
+            "description": "Iconic ancient pyramids built as tombs for Egyptian pharaohs in Giza.",
+            "image": "https://i.imgur.com/C2GqsCN_d.webp?maxwidth=520&shape=thumb&fidelity=high"
+        },
+        {
+            "id": 5,
+            "name": "Stonehenge",
+            "description": "Prehistoric monument in England consisting of a ring of standing stones.",
+            "image": "https://i.imgur.com/CLPwqsx_d.webp?maxwidth=520&shape=thumb&fidelity=high"
+        }
+    ]
 }
