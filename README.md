@@ -1,97 +1,169 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
-# Getting Started
+---
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+# Historical Places App
 
-## Step 1: Start Metro
+A **React Native / Redux** app showcasing famous historical places around the world. Users can:
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+* View a list of places with **name, image, and description**
+* Mark/unmark places as **visited**
+* Navigate to **Place Details** screen
+* Use **deep linking** to open a place directly
+* Enjoy a fun interactive feature (e.g., random suggestion)
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+The app is built with **React Native, Redux, Redux-Observable**, and **React Navigation**.
 
-```sh
-# Using npm
-npm start
+---
 
-# OR using Yarn
-yarn start
+## **Features**
+
+* Display a list of historical places with images and descriptions
+* Mark/unmark places as **visited** with real-time UI updates
+* Navigate between **Dashboard** and **PlaceDetails** screens
+* Support for **deep linking** on both iOS and Android
+* Cross-platform: works on **iOS** and **Android**
+* Fun interactive feature (e.g., suggest a random place)
+* Uses **Redux + Redux-Observable** for state management
+
+---
+
+## **Screens**
+
+1. **Dashboard** – List of all historical places
+2. **Place Details** – Detailed information about a selected place, with **visited toggle**
+
+---
+
+## **Folder Structure**
+
+```
+src/
+├─ app/
+│  ├─ Dashboard/          # Dashboard screen
+│  ├─ PlaceDetails/       # PlaceDetails screen
+├─ assets/
+│  ├─ images/             # Images
+├─ common/
+│  ├─ config/             # Configuration
+├─ components/
+│  ├─ module/             # module
+│  ├─ ui/                 # general-use
+├─ hooks/                 # hooks
+├─ lib/                   # utility
+├─ router/
+│  ├─ PagesNavigation.tsx # Navigation container + deep linking
+│  ├─ types.ts            # Type definitions for navigation
+├─ store/
+│  ├─ places/
+│     ├─ places.actions.ts
+│     ├─ places.epic.ts
+│     ├─ places.reducer.ts
+│     ├─ places.selectors.ts
+│     ├─ places.types.ts
+├─ types/
+│  └─ navigation.d.ts             # navigation typing
 ```
 
-## Step 2: Build and run your app
+---
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+## **Installation**
 
-### Android
+```bash
+# Install dependencies
+npm install
+# or
+yarn install
 
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
+# Install iOS pods
+cd ios && pod install && cd ..
 ```
+
+---
+
+## **Running the App**
 
 ### iOS
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
+```bash
+npx react-native run-ios
 ```
 
-Then, and every time you update your native dependencies, run:
+### Android
 
-```sh
-bundle exec pod install
+```bash
+npx react-native run-android
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+---
 
-```sh
-# Using npm
-npm run ios
+## **Deep Linking**
 
-# OR using Yarn
-yarn ios
+The app supports deep linking for **cold start** and **hot start**.
+
+### URL Scheme
+
+```
+historicalplaces://place/:placeId
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+* Example: `historicalplaces://place/5` opens the **PlaceDetails** screen for the place with `id = 5`.
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+### iOS Simulator
 
-## Step 3: Modify your app
+```bash
+xcrun simctl openurl booted "historicalplaces://place/5"
+```
 
-Now that you have successfully run the app, let's make changes!
+### Android Emulator
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+```bash
+adb shell am start -W -a android.intent.action.VIEW -d "historicalplaces://place/5" com.mbb_assessment
+```
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+> Make sure your **AndroidManifest.xml** has the correct intent filter and scheme.
+> For Android, `launchMode="singleTask"` is required to handle deep links properly.
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+---
 
-## Congratulations! :tada:
+## **Redux & State Management**
 
-You've successfully run and modified your React Native App. :partying_face:
+* **Redux** stores the list of places and visited IDs.
+* **Redux-Observable Epics** handle asynchronous fetches.
+* **Visited toggle** updates both UI and Redux state in real-time.
 
-### Now what?
+Example reducer logic:
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+```ts
+case TOGGLE_VISITED:
+  return {
+    ...state,
+    visitedIds: state.visitedIds.includes(action.payload)
+      ? state.visitedIds.filter((id) => id !== action.payload)
+      : [...state.visitedIds, action.payload],
+  };
+```
 
-# Troubleshooting
+---
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+## **Testing & Verification**
 
-# Learn More
+1. Verify places are fetched and displayed correctly.
+2. Test marking and unmarking places as visited.
+3. Test deep linking: open the app with a URL and verify the correct screen.
+4. Navigate back from **PlaceDetails** to **Dashboard**.
+5. Test the fun feature (e.g., random suggestion).
+6. Check **cross-platform** consistency (iOS and Android).
 
-To learn more about React Native, take a look at the following resources:
+---
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+## **Dependencies**
+
+* `react-native`
+* `react-redux`
+* `redux`
+* `redux-observable`
+* `@react-navigation/native`
+* `@react-navigation/native-stack`
+* `react-native-safe-area-context`
+
+---
