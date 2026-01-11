@@ -74,6 +74,7 @@ const DashboardScreen: React.FC = () => {
         <Text style={styles.randomText}>🎲 Suggest a Place</Text>
       </Pressable>
       <FlatList
+        testID={`dashboardList`}
         contentContainerStyle={{ flexGrow: 1 }}
         data={list}
         keyExtractor={(item) => {
@@ -85,6 +86,7 @@ const DashboardScreen: React.FC = () => {
           return (
             <View style={styles.card}>
               <Pressable
+                testID={`place-${item.id}`}
                 onPress={() => {
                   return navigation.navigate(`PlaceDetails`, {
                     placeId: item.id,

@@ -70,8 +70,6 @@ src/
 
 ```bash
 # Install dependencies
-npm install
-# or
 yarn install
 
 # Install iOS pods
@@ -153,6 +151,27 @@ case TOGGLE_VISITED:
 4. Navigate back from **PlaceDetails** to **Dashboard**.
 5. Test the fun feature (e.g., random suggestion).
 6. Check **cross-platform** consistency (iOS and Android).
+
+### You can automate the testing by using detox with the below script:
+### iOS
+#### Debug build
+```bash
+yarn e2e:build-ios-debug && yarn e2e:test-ios-debug
+```
+#### Release build
+```bash
+yarn e2e:build-ios-release && yarn e2e:test-ios-release
+```
+
+### Android
+#### Debug build
+```bash
+yarn e2e:build-android-debug && yarn e2e:test-android-debug
+```
+#### Release build
+```bash
+yarn e2e:build-android-debug && yarn e2e:test-android-debug
+```
 
 ---
 

@@ -79,6 +79,7 @@ const PlaceDetailsScreen: React.FC<Props> = ({ route, navigation }) => {
       }}
     >
       <Pressable
+        testID={`backButton`}
         style={{ marginTop: 32, marginBottom: 6, alignSelf: `flex-start` }}
         onPress={() => {
           navigation.goBack();
@@ -86,7 +87,9 @@ const PlaceDetailsScreen: React.FC<Props> = ({ route, navigation }) => {
       >
         <Text style={styles.backText}>{`く Back`}</Text>
       </Pressable>
-      <Text style={styles.headerTitle}>{place.name}</Text>
+      <Text testID={`placeName`} style={styles.headerTitle}>
+        {place.name}
+      </Text>
       <ScrollView
         contentContainerStyle={{
           flexGrow: 1,
@@ -101,6 +104,7 @@ const PlaceDetailsScreen: React.FC<Props> = ({ route, navigation }) => {
         <Text style={styles.description}>{place.description}</Text>
 
         <Pressable
+          testID={`visitButton`}
           style={[
             styles.visitButton,
             { backgroundColor: isVisited ? `green` : `orange` },
